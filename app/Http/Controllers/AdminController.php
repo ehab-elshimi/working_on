@@ -12,14 +12,13 @@ class AdminController extends Controller
     }
     public function index(){
 
-        // DB::table('table1')
-        // $results = DB::table('contacts')
-        // ->select('contacts.id', 'contacts.email', DB::raw('GROUP_CONCAT(phones.number SEPARATOR ", ") AS phone_numbers'),DB::raw('GROUP_CONCAT(social_media.icon SEPARATOR ", ") AS icon'),DB::raw('GROUP_CONCAT(social_media.link SEPARATOR ", ") AS link'))
-        // ->join('phones', 'contacts.id', '=', 'phones.contact_id')
-        // ->join(DB::raw('(SELECT contact_id, GROUP_CONCAT(icon SEPARATOR ", ") AS icon, GROUP_CONCAT(link SEPARATOR ", ") AS link FROM social_media GROUP BY contact_id) AS social_media'), 'contacts.id', '=', 'social_media.contact_id')
-        // ->groupBy('contacts.id', 'contacts.email')
-        // ->get();
-        // dd($results);
+        $results = DB::table('contacts')
+                        ->select('contacts.id', 'contacts.email', DB::raw('GROUP_CONCAT(phones.number SEPARATOR ", ") AS phone_numbers'),DB::raw('GROUP_CONCAT(social_media.icon SEPARATOR ", ") AS icon'),DB::raw('GROUP_CONCAT(social_media.link SEPARATOR ", ") AS link'))
+                        ->join('phones', 'contacts.id', '=', 'phones.contact_id')
+                        ->join(DB::raw('(SELECT contact_id, GROUP_CONCAT(icon SEPARATOR ", ") AS icon, GROUP_CONCAT(link SEPARATOR ", ") AS link FROM social_media GROUP BY contact_id) AS social_media'), 'contacts.id', '=', 'social_media.contact_id')
+                        ->groupBy('contacts.id', 'contacts.email')
+                        ->get();
+        dd($results);
     }
 
 }
