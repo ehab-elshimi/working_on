@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class AdminController extends Controller
 {
@@ -20,7 +21,7 @@ class AdminController extends Controller
         //                 ->groupBy('contacts.id', 'contacts.email')
         //                 ->get();
         $results = Contact::all();
-        dd($results);
+        return Response::json($results);
     }
 
 }
