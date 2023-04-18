@@ -23,5 +23,10 @@ class AdminController extends Controller
         $results = Contact::all();
         return Response::json($results);
     }
+    public function update(){
+        Contact::where('id',1)->update(['first_name'=>'mahmoud yousry']);
+        $results = Contact::all();
+        return Response::json($results);
+    }
 
 }

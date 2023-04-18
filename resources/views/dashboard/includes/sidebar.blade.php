@@ -142,7 +142,8 @@
                             </a>
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
-                                    <a class="nav-main-link" href="be_pages_ecom_dashboard.html">
+                                    <a class="nav-main-link" href="{{route('tables.apiv01')}}">
+                                        {{-- be_pages_ecom_dashboard.html --}}
                                         <span class="nav-main-link-name">Dashboard</span>
                                     </a>
                                 </li>

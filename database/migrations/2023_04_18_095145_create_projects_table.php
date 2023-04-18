@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('formal_name');
-            $table->string('email');
-            $table->string('address');
-            $table->text('iframe');
-            $table->string('location_url');
-            $table->string('cv_link_drive');
-            $table->string('video_intro_url');
-            $table->text('footer_message');
+            $table->string('intro_image');
+            $table->string('title');
+            $table->string('images'); // array images
+            $table->text('source_code_link');
+            $table->text('modal_desc');
+            $table->string('technologies');// array tecnologies
+            $table->text('desc');
+            $table->string('pdf_docs_url');
+            $table->boolean('is_displayed');
             $table->foreignId('user_id')
             ->constrained('users')
             ->onUpdate('cascade')
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('projects');
     }
 };

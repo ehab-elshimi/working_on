@@ -11,18 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('formal_name');
-            $table->string('email');
-            $table->string('address');
-            $table->text('iframe');
-            $table->string('location_url');
-            $table->string('cv_link_drive');
-            $table->string('video_intro_url');
-            $table->text('footer_message');
+            $table->string('icon');
+            $table->string('title');
+            $table->text('description');
             $table->foreignId('user_id')
             ->constrained('users')
             ->onUpdate('cascade')
@@ -36,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('services');
     }
 };

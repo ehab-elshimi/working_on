@@ -25,4 +25,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 require('auth.php');
-Route::get('/admin/tables', [AdminController::class,'index']);
+Route::get('/admin/tables', [AdminController::class,'index'])->name('tables.apiv01');
+Route::get('/admin/tables/update', [AdminController::class,'update'])->name('tables.apiv02');

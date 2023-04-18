@@ -19,5 +19,8 @@ class Contact extends Model
     {
         return $this->hasMany(SocialMedia::class);
     }
-
+    public function User():HasOne
+    {
+        return $this->belongsTo(User::class);
+    }
 }
