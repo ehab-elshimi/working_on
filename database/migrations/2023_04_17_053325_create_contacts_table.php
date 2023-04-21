@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('address');
             $table->text('iframe');
             $table->string('location_url');
-            $table->string('cv_link_drive');
-            $table->string('video_intro_url');
+            $table->text('cv_link_drive');
+            $table->string('video_intro_url'); // upload
             $table->text('footer_message');
             $table->foreignId('user_id')
             ->constrained('users')

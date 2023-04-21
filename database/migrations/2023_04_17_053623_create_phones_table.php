@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            // $table->integer('contact_id')->unsigned();
-            // $table->references('id')->on('contacts')->onDelete('cascade');
             $table->foreignId('contact_id')
             ->constrained('contacts')
             ->onUpdate('cascade')

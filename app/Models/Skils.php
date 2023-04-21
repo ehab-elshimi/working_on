@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Skils extends Model
 {
     use HasFactory;
+    protected $fillable = ['skill','type','user_id'];
 }

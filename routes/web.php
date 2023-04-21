@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard.pages.index');
-});
+})->name('dashboard.pages.index');
+
 Route::get('/error', function () {
     return view('basic.pages.404_page');
 });
@@ -27,3 +29,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 require('auth.php');
 Route::get('/admin/tables', [AdminController::class,'index'])->name('tables.apiv01');
 Route::get('/admin/tables/update', [AdminController::class,'update'])->name('tables.apiv02');
+
+
+Route::group(['middleware'=>'auth','prefix'=>'/admin','as'=>'dashboard.'],function () {
+    Route::resource('/projects', ProjectController::class);
+});

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Contact extends Model
 {
     use HasFactory;
-    protected $filable=['first_name','lastname','formal_name','email','address','iframe','location_url'];
+    protected $fillable = ['first_name','last_name','formal_name','email','address','iframe','location_url','cv_link_drive','video_intro_url','footer_message','user_id'];
 
     public function phones():BelongsTo
     {

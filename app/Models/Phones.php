@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Phones extends Model
 {
     use HasFactory;
-    protected $filable=['phone', 'contact_id'];
+    protected $fillable=['phone', 'contact_id'];
     public function contact():HasOne
     {
         return $this->belongsTo(Contact::class);

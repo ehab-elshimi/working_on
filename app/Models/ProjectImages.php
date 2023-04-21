@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class ProjectImages extends Model
 {
     use HasFactory;
+    protected $fillable = ['image','project_id'];
+    
     public function project():HasOne
     {
         return $this->belongsTo(Project::class);

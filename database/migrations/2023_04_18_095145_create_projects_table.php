@@ -12,15 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->string('intro_image');
+            $table->id(); 
+            $table->string('intro_image'); // upload
             $table->string('title');
-            $table->string('images'); // array images
             $table->text('source_code_link');
             $table->text('modal_desc');
-            $table->string('technologies');// array tecnologies
             $table->text('desc');
-            $table->string('pdf_docs_url');
+            $table->string('pdf_docs_url'); //upload
             $table->boolean('is_displayed');
             $table->foreignId('user_id')
             ->constrained('users')

@@ -5,7 +5,10 @@
 {{-- @include('dashboard.includes.header2') --}}
 <!-- Main Container -->
 <main id="main-container">
-    @include('dashboard.includes.navigation')
+    @if(Route::is('dashboard.projects.index') )
+        @include('dashboard.includes.hero')
+    @endif
+    {{-- @include('dashboard.includes.navigation') --}}
     <!-- Page Content -->
     @yield('content')
     <!-- END Page Content -->

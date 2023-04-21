@@ -58,4 +58,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Emails::class);
     }
+    public function companies():BelongsTo //one to many
+    {
+        return $this->hasMany(Company::class);
+    }
 }
