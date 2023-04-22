@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Models\Developer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -20,12 +20,12 @@ class AdminController extends Controller
         //                 ->join(DB::raw('(SELECT contact_id, GROUP_CONCAT(icon SEPARATOR ", ") AS icon, GROUP_CONCAT(link SEPARATOR ", ") AS link FROM social_media GROUP BY contact_id) AS social_media'), 'contacts.id', '=', 'social_media.contact_id')
         //                 ->groupBy('contacts.id', 'contacts.email')
         //                 ->get();
-        $results = Contact::all();
+        $results = Developer::all();
         return Response::json($results);
     }
     public function update(){
-        Contact::where('id',1)->update(['first_name'=>'mahmoud yousry']);
-        $results = Contact::all();
+        Developer::where('id',1)->update(['first_name'=>'mahmoud yousry']);
+        $results = Developer::all();
         return Response::json($results);
     }
 
