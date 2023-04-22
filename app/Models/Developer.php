@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Contact extends Model
+class Developer extends Model
 {
     use HasFactory;
     protected $fillable = ['first_name','last_name','formal_name','email','address','iframe','location_url','cv_link_drive','video_intro_url','footer_message','user_id'];
@@ -23,5 +23,9 @@ class Contact extends Model
     public function User():HasOne
     {
         return $this->belongsTo(User::class);
+    }
+    public function skills():BelongsTo
+    {
+        return $this->hasMany(Skills::class);
     }
 }

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Phones extends Model
 {
     use HasFactory;
-    protected $fillable=['phone', 'contact_id'];
-    public function contact():HasOne
+    protected $fillable=['phone', 'developer_id'];
+    public function developer():HasOne
     {
-        return $this->belongsTo(Contact::class);
+        return $this->belongsTo(Developer::class);
     }
 }

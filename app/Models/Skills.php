@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SocialMedia extends Model
+class Skills extends Model
 {
     use HasFactory;
-    protected $fillable=['icon', 'link','developer_id'];
+    protected $fillable = ['skill','type','developer_id'];
 
     public function developer():HasOne
     {

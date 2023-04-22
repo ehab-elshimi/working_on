@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id(); 
+            $table->id();
             $table->string('logo'); //upload
             $table->text('link');
             $table->string('name');
             $table->string('location');
             $table->enum('period_type', ['one_period', 'multi_period']);
-            $table->foreignId('user_id')
-            ->constrained('users')
+            $table->foreignId('developer_id')
+            ->constrained('developers')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

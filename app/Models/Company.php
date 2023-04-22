@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Company extends Model
 {
     use HasFactory;
-    protected $fillable = ['logo','link','name','location','period_type','user_id'];
+    protected $fillable = ['logo','link','name','location','period_type','developer_id'];
 
-    public function User():HasOne
+    public function developer():HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Developer::class);
     }
     public function experience_periods():BelongsTo //one to many
     {

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('skill_features', function (Blueprint $table) {
+        Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->text('feature');
-            $table->enum('feature_type', ['backend', 'frontend', 'other']);
+            $table->enum('feature_types', ['backend', 'frontend', 'other']);
             $table->timestamps();
         });
     }

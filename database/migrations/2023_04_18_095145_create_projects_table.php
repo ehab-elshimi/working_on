@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id(); 
+            $table->id();
             $table->string('intro_image'); // upload
             $table->string('title');
             $table->text('source_code_link');
@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('desc');
             $table->string('pdf_docs_url'); //upload
             $table->boolean('is_displayed');
-            $table->foreignId('user_id')
-            ->constrained('users')
+            $table->foreignId('developer_id')
+            ->constrained('developers')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

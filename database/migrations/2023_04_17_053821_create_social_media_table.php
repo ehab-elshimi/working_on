@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('icon');
             $table->text('link');
-            $table->foreignId('contact_id')
-            ->constrained('contacts')
+            $table->foreignId('developer_id')
+            ->constrained('developers')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();

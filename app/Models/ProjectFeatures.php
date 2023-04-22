@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectSkillsFeature extends Model
+class ProjectFeatures extends Model
 {
     use HasFactory;
-    protected $fillable = ['project_id','skill_feature_id'];
+    protected $fillable = ['project_id','feature_id'];
 
 }

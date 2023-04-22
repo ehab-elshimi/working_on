@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['intro_image','title','source_code_link','modal_desc','desc','pdf_docs_url','is_displayed','user_id'];
+    protected $fillable = ['intro_image','title','source_code_link','modal_desc','desc','pdf_docs_url','is_displayed','developer_id'];
 
     public function project_images():BelongsTo
     {
@@ -22,10 +22,10 @@ class Project extends Model
     }
     public function skill_features()
     {
-        return $this->belongsToMany(SkillFeature::class, 'project_skills_features');
+        return $this->belongsToMany(ProjectFeatures::class, 'project_features');
     }
-    public function User():HasOne
+    public function developer():HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Developer::class);
     }
 }

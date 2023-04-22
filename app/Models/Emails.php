@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Emails extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','email','message','user_id'];
-    
-    public function User():HasOne
+    protected $fillable = ['name','email','message','developer_id'];
+
+    public function developer():HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Developer::class);
     }
 }

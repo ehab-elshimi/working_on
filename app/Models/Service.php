@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $fillable =['icon','title','description','user_id'];
-    
-    public function User():HasOne
+    protected $fillable =['icon','title','description','developer_id'];
+
+    public function developer():HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Developer::class);
     }
 }

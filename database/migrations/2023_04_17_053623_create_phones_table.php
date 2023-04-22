@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            $table->foreignId('contact_id')
-            ->constrained('contacts')
+            $table->foreignId('developer_id')
+            ->constrained('developers')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->timestamps();
