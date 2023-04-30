@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+require __DIR__.'/endpoints.php';
 
 Route::get('/', function () {return view('dashboard.pages.index');})->name('pages.index');
 Route::resource('/projects', ProjectController::class);
