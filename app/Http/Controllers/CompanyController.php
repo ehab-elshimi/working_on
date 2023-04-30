@@ -2,10 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\HttpResponses;
 use Illuminate\Http\Request;
+use App\Models\Company;
+use App\Services\ComapnyService;
 
 class CompanyController extends Controller
 {
+    use HttpResponses;
+    protected ComapnyService $companyService;
+    protected $model;
+
+    public function __construct(ComapnyService $companyService)
+    {
+        $this->companyService = $companyService;
+        $this->model = new Company();
+    }
+
     /**
      * Display a listing of the resource.
      */

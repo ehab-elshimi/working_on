@@ -3,9 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Traits\HttpResponses;
+use App\Models\Developer;
+use App\Services\DeveloperService;
+use Illuminate\Support\Facades\Response;
 
 class DeveloperController extends Controller
 {
+    use HttpResponses;
+    protected DeveloperService $developerService;
+    protected $model;
+
+    public function __construct(DeveloperService $developerService)
+    {
+        $this->developerService = $developerService;
+        $this->model = new Developer();
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -27,7 +41,9 @@ class DeveloperController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $developer = $this->developerService->store($this->model, $request->toArray());
+        return Response::json($developer);
+
     }
 
     /**
