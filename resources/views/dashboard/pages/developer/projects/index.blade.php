@@ -2,6 +2,4 @@
 
 @section('content')
 
-    @include('layouts.main-container')
-
 @endsection

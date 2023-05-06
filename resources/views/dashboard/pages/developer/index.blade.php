@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-
-    @include('layouts.main-container')
-
+    <h1>Hello</h1>
 @endsection
