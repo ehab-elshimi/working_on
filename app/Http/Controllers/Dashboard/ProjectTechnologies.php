@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProjectImagesController extends Controller
+class ProjectTechnologies extends Controller
 {
     /**
      * Display a listing of the resource.

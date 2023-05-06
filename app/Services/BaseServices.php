@@ -40,11 +40,11 @@ abstract class BaseServices
      */
     public function update($model, int $id, array $data)
     {
-        $category = $this->model($model)->findOrFail($id);
+        $updateData = $this->model($model)->findOrFail($id);
 
-        $category->update($data);
+        $updateData->update($data);
 
-        return $category;
+        return $updateData;
     }
 
     /**
