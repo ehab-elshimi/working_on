@@ -9,7 +9,7 @@ use App\Services\DeveloperService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class DeveloperController extends Controller
+class PhoneController extends Controller
 {
     use HttpResponses;
     protected DeveloperService $developerService;

@@ -4,21 +4,21 @@ namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Traits\HttpResponses;
-use App\Models\Developer;
-use App\Services\DeveloperService;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use App\Services\CompanyService;
 use Illuminate\Support\Facades\Validator;
 
-class DeveloperController extends Controller
+class CompanyController extends Controller
 {
     use HttpResponses;
-    protected DeveloperService $developerService;
+    protected CompanyService $companyService;
     protected $model;
 
-    public function __construct(DeveloperService $developerService)
+    public function __construct(CompanyService $companyService)
     {
-        $this->developerService = $developerService;
-        $this->model = new Developer();
+        $this->companyService = $companyService;
+        $this->model = new Company();
     }
 
     /**
@@ -26,7 +26,7 @@ class DeveloperController extends Controller
      */
     public function index()
     {
-        $developers = $this->developerService->retrieve($this->model);
+        $developers = $this->companyService->retrieve($this->model);
         return view('dashboard.pages.developers.index', compact('developers'));
     }
 
@@ -45,30 +45,30 @@ class DeveloperController extends Controller
         }
 
         // store the developer
-        $this->developerService->store($this->model, $request->toArray());
+        $this->companyService->store($this->model, $request->toArray());
 
         return redirect()->route('dashboard.developers.index')->with('success','developer created successfully');
     }
     /**
      * Display the specified resource.
      */
-    public function show(Developer $developer)
+    public function show(Company $developer)
     {
-        $developer = $this->developerService->show($this->model, $developer->id);
+        $developer = $this->companyService->show($this->model, $developer->id);
         return view('dashboard.pages.developers.show', compact('developer'));
     }
     /**
      * Display the specified resource.
      */
-    public function edit(Developer $developer)
+    public function edit(Company $developer)
     {
-        $developerData = $this->developerService->show($this->model, $developer->id);
+        $developerData = $this->companyService->show($this->model, $developer->id);
         return view('dashboard.pages.developers.edit', compact('developerData'));
     }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Developer $developer)
+    public function update(Request $request, Company $developer)
     {
          // validation the request
          $validator =  Validator::make($request->all(), [
@@ -80,7 +80,7 @@ class DeveloperController extends Controller
         }
 
         // update the developer
-        $this->developerService->update($this->model,$developer->id, $request->all());
+        $this->companyService->update($this->model,$developer->id, $request->all());
 
         return redirect()->route('dashboard.developers.index')->with('success','developer created successfully');
     }
@@ -88,9 +88,9 @@ class DeveloperController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Developer $developer)
+    public function destroy(Company $developer)
     {
-        $deleteDeveloper = $this->developerService->delete($this->model, $developer->id);
+        $deleteDeveloper = $this->companyService->delete($this->model, $developer->id);
 
         if (!$deleteDeveloper) {
             return $this->success(null, "Developer Deleted Successfully", 200);

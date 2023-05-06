@@ -16,6 +16,10 @@ class Developer extends Model
     {
         return $this->hasMany(Phones::class);
     }
+    public function features():BelongsTo
+    {
+        return $this->hasMany(Features::class);
+    }
     public function social_media_icons():BelongsTo
     {
         return $this->hasMany(SocialMedia::class);

@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->text('feature');
             $table->enum('feature_types', ['backend', 'frontend', 'other']);
+            $table->foreignId('developer_id')
+            ->constrained('developers')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
